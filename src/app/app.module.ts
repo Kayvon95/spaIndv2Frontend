@@ -11,6 +11,9 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import { UserCardComponent } from './user/user-card/user-card.component';
 import {UserService} from './user/user.services';
+import { PostListComponent } from './post/post-list/post-list.component';
+import { PostCardComponent } from './post/post-card/post-card.component';
+import {PostService} from './post/post.services';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {UserService} from './user/user.services';
     UserListComponent,
     CommentComponent,
     HeaderComponent,
-    UserCardComponent
+    UserCardComponent,
+    PostListComponent,
+    PostCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import {UserService} from './user/user.services';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

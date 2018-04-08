@@ -3,7 +3,6 @@ import {Http, Headers, URLSearchParams} from '@angular/http';
 import {Subject} from 'rxjs/Subject';
 import {environment} from '../../environments/environment';
 import {User} from '../model/user.model';
-// import {Post} from '../model/post.model';
 
 @Injectable()
 export class UserService {
