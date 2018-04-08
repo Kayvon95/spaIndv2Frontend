@@ -10,7 +10,7 @@ export class UserService {
   userChanged = new Subject<User[]>();
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private serverUrl = environment.serverUrl + '/users'; // URL to web api
+  private serverUrl = environment.serverUrl + 'users'; // URL to web api
   private users: User[] = [];
 
   constructor(private http: Http) {

@@ -9,6 +9,8 @@ import {UserListComponent} from './user/userlist/userlist.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
+import { UserCardComponent } from './user/user-card/user-card.component';
+import {UserService} from './user/user.services';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {AppRoutingModule} from './app-routing.module';
     UserComponent,
     UserListComponent,
     CommentComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import {AppRoutingModule} from './app-routing.module';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

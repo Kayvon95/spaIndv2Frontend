@@ -1,3 +1,14 @@
-<p>
-  userlist works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="AddUser()">Create user</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-user-card
+      *ngFor="let userEl of users;"
+      [user]="userEl">
+    </app-user-card>
+  </div>
+</div>
