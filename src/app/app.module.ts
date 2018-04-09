@@ -14,6 +14,16 @@ import {UserService} from './user/user.services';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostCardComponent } from './post/post-card/post-card.component';
 import {PostService} from './post/post.services';
+import { PostEditComponent } from './post/post-edit/post-edit.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
+import {UserDetailComponent} from './user/user-detail/user-detail.component';
+import { CommentListComponent } from './comment/comment-list/comment-list.component';
+import { CommentCardComponent } from './comment/comment-card/comment-card.component';
+import {CommentService} from './comment/comment.services';
+import { PostDetailComponent } from './post/post-detail/post-detail.component';
+import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
+import { CommentEditComponent } from './comment/comment-edit/comment-edit.component';
+import {DropdownDirective} from './shared/directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +35,16 @@ import {PostService} from './post/post.services';
     HeaderComponent,
     UserCardComponent,
     PostListComponent,
-    PostCardComponent
+    PostCardComponent,
+    PostEditComponent,
+    UserEditComponent,
+    UserDetailComponent,
+    CommentListComponent,
+    CommentCardComponent,
+    PostDetailComponent,
+    CommentDetailComponent,
+    CommentEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -34,7 +53,7 @@ import {PostService} from './post/post.services';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [UserService, PostService],
+  providers: [UserService, PostService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

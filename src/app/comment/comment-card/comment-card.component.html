@@ -1,0 +1,26 @@
+<a style="cursor: pointer;"
+  [routerLink]="[comment._id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="container">
+    <table class="table borderless">
+      <tr>
+        <td class="col-md-6">
+          <p class="comment-card-header"><b>{{comment.content}}</b></p>
+        </td>
+        <td class="col-md-6 pull-right">
+          <a routerLink="/comments/{{comment._id}}/edit"
+             class="btn btn-warning">
+            Edit
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          Posted on {{comment.created_at | date: 'd/MM/yyyy HH:mm'}}
+        </td>
+
+      </tr>
+    </table>
+  </div>
+</a>

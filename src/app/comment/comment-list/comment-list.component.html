@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-12">
+    <a routerLink="/comments/create"
+       class="btn btn-success"
+       style="margin-top: 10px;">
+      Comment!
+    </a>
+  </div>
+  <hr>
+  <div class="col-lg-12">
+    <app-comment-card
+      *ngFor="let commentEl of comments;"
+      [comment]="commentEl">
+    </app-comment-card>
+  </div>
+</div>

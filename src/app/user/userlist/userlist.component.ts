@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from '../user.services';
 import {User} from '../../model/user.model';
 import {Subscription} from 'rxjs/Subscription';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-userlist',
@@ -11,9 +11,12 @@ import {Router} from '@angular/router';
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute) { }
   users: User[];
   subscription: Subscription;
+
   ngOnInit() {
     this.subscription = this.userService.userChanged
       .subscribe(
@@ -28,9 +31,6 @@ export class UserListComponent implements OnInit, OnDestroy {
       .catch(error => console.log(error));
   }
 
-  AddUser() {
-    this.router.navigate(['/users/create']);
-  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

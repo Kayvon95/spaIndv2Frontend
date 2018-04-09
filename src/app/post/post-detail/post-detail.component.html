@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <h3>
+      {{post.title}}
+    </h3>
+  </div>
+  <div class="row">
+    <h4>{{post.tag}} - {{post.created_at | date : 'd/MM/yyyy HH:mm'}}</h4>
+    <p>{{post.content}}</p>
+    <br>
+    <a class="btn btn-info" routerLink="/posts/list">Back to posts</a>
+    <a class="btn btn-info" routerLink="/comments/create">Comment</a>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12" *ngIf="post.comments?.length > 0">
+      <br>
+      <p><b>Posts by {{post.title}}</b></p>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <app-comment-card *ngFor="let comment of post.comments"
+                         [comment]="comment"
+                         [post]="post">
+          </app-comment-card>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

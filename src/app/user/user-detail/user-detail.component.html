@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <h4>
+      Hi <span class="text-success">{{user.userName}}!</span>
+    </h4>
+    <h5>Your information: </h5>
+    <table>
+      <tr>
+        <td>First name: </td>
+        <td>{{user.firstName}}</td>
+      </tr>
+      <tr>
+        <td>Last name: </td>
+        <td>{{user.lastName}}</td>
+      </tr>
+      <tr>
+        <td>Email address: </td>
+        <td>{{user.email}}</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div
+    class="btn-group"
+    appDropdown>
+    <button
+      type="button"
+      class="btn btn-warning dropdown-toggle">
+      Options <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a style="cursor: pointer;" (click)="onDeleteUser()">Delete user</a></li>
+    </ul>
+
+  </div>
+  <a class="btn btn-info" routerLink="/users/list">Back to users</a>
+  <div class="row">
+    <div class="col-xs-12" *ngIf="user.posts?.length > 0">
+      <br>
+      <p><b>Posts by {{user.userName}}</b></p>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <app-post-card *ngFor="let post of user.posts"
+                         [post]="post"
+                         [user]="user">
+          </app-post-card>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,29 @@
 <a
-  style="cursor: pointer;"
-  [routerLink]="[user._id]"
-  routerLinkActive="active"
   class="list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ user.userName}}</h4>
-    <p class="list-group-item-text">{{ user.firstName}}</p>
+  <div class="container">
+    <table class="table borderless">
+        <tr>
+          <td class="col-md-6">
+            <p class="cardUserheader"><b>{{user.userName}}</b></p>
+          </td>
+          <td class="col-md-6 pull-right">
+            <a routerLink="/users/{{user._id}}"
+               class="btn btn-info">
+              Info
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-6">
+            {{user.firstName}} <span> </span> {{user.lastName}}
+          </td>
+          <td class="col-md-6 pull-right">
+            <a routerLink="/users/{{user._id}}/edit"
+               class="btn btn-warning">
+              Edit
+            </a>
+          </td>
+        </tr>
+    </table>
   </div>
 </a>

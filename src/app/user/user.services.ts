@@ -29,5 +29,49 @@ export class UserService {
         return Promise.reject(error.message || error);
       });
   }
-
+  // Get single user by ID
+  getUser(id: string): Promise<User> {
+    return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        return response.json() as User;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+  // // Add user
+  // public addUser(user: User) {
+  //   return this.http.post(this.serverUrl, user, {headers: this.headers})
+  //     .toPromise()
+  //     .then(response => {
+  //       console.log(user);
+  //       console.dir(response.toString());
+  //       return response.toString() as string;
+  //     })
+  //     .catch(error => {
+  //       console.log('handleError');
+  //       return Promise.reject(error.message || error);
+  //     });
+  // }
+  // Save
+  public saveUsers(users: User) {
+  return this.http.post(
+    this.serverUrl, users, { headers: this.headers }
+  );
+}
+  // Edit user
+  public editUser(id: string, user: User) {
+    return this.http.put(
+      this.serverUrl + '/' + id, user, { headers: this.headers }
+      );
+  }
+  // Delete
+  public deleteUser(id: string) {
+    return this.http.delete(
+      this.serverUrl + '/' + id, { headers: this.headers }
+      );
+  }
 }
